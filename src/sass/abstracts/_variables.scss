@@ -1,0 +1,40 @@
+:root {
+  --c-red-light: #f8b6c3;
+  --c-red: #ff1745;
+  --c-red-rgb: 255, 23, 69;
+  --c-red-dark: #9c0927;
+
+  --c-green: #099658;
+  --c-green-rgb: 9, 150, 88;
+
+  --c-primary-light: #498bee;
+  --c-primary-light-rgb: 73, 139, 238;
+  --c-primary: #1a75ff;
+  --c-primary-rgb: 26, 117, 255;
+  --c-primary-dark: #0043a7;
+  --c-primary-dark-rgb: 0, 67, 167;
+
+  // Light mode
+  --c-white: #fff;
+  --c-white-rgb: 255, 255, 255;
+  --c-black: #000;
+  --c-black-rgb: 0, 0, 0;
+
+  --c-secondary-light: #424242;
+  --c-secondary-light-rgb: 66, 66, 66;
+  --c-secondary: #353535;
+  --c-secondary-rgb: 53, 53, 53;
+  --c-secondary-dark: #292929;
+  --c-secondary-dark-rgb: 41, 41, 41;
+
+  --c-grey-darker: #8d8d8d;
+  --c-grey-darker-rgb: 141, 141, 141;
+  --c-grey-dark: #a7a7a7;
+  --c-grey-dark-rgb: 167, 167, 167;
+  --c-grey: #c9c9c9;
+  --c-grey-rgb: 201, 201, 201;
+  --c-grey-light: #f0f0f0;
+  --c-grey-light-rgb: 240, 240, 240;
+}
+
+$font-size: 1.55rem;

@@ -1,0 +1,12 @@
+.modal
+    button.btn.btn__glass.modal__close(title="Exit modal")
+        i.bi.bi-x
+    .modal__inner
+        .modal__content
+            h5.header-5.u-center-text disable two factor authentication?
+            p.paragraph.u-center-text Are you sure you want to disable two factor authentication? Once disabled, you will no longer need to access your email for a specific code everytime you log in. However, this makes your account more vulnerable to being hacked.
+        .modal__buttons
+            button.btn.btn__glass.modal__exit(title="cancel") cancel
+            button.btn.btn__primary.disableTwoFactor__confirm(title="confirm") 
+                span confirm
+                i.bi.bi-check-lg.success-icon

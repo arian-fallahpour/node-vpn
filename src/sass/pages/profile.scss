@@ -1,0 +1,520 @@
+@import "./base";
+
+@import "../components/notice";
+@import "../components/userCard";
+@import "../components/panel";
+
+.section--profile {
+  @include respond(500) {
+    padding: 5rem 0;
+  }
+}
+
+// SETTINGS
+.settings {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(20rem, 30rem) minmax(45rem, 55rem);
+  gap: 5rem;
+
+  @include respond(800) {
+    grid-template-columns: minmax(auto, 55rem);
+  }
+
+  @include respond(500) {
+    grid-template-columns: 1fr;
+  }
+
+  &__main {
+  }
+
+  &__content {
+    height: 100%;
+    display: grid;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    min-height: 40rem;
+
+    &:not(:last-child) {
+      padding-bottom: 5rem;
+    }
+
+    &:not(:first-child) {
+      padding-top: 5rem;
+    }
+
+    animation: fadeSlideFromLeft 0.3s ease-in-out;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid var(--c-grey-light);
+    }
+
+    &:only-child {
+      height: 100%;
+    }
+
+    & .btn {
+    }
+
+    @include respond(800) {
+      max-height: none;
+    }
+
+    @include respond(500) {
+      padding: 0 5rem;
+    }
+
+    @include respond(400) {
+      align-items: stretch;
+
+      & > * {
+        align-self: stretch;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 40rem;
+    margin: 0 auto;
+
+    & > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.sidebar {
+  display: grid;
+  gap: 5rem;
+  align-content: start;
+  cursor: auto;
+
+  @include respond(800) {
+    cursor: inherit;
+
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
+    border-radius: 1rem;
+
+    & > *:not(:last-child) {
+      margin-right: 5rem;
+    }
+  }
+
+  @include respond(500) {
+    margin: 0 5rem;
+  }
+}
+
+.tab {
+  @include respond(800) {
+    display: inline-block;
+    box-shadow: none;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  @include respond(500) {
+    box-shadow: none;
+  }
+
+  &__header {
+    @include respond(800) {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 1rem;
+
+    @include respond(800) {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  &__item {
+  }
+
+  &__btn {
+    color: inherit;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+
+    &:disabled {
+      background-color: var(--c-primary);
+      pointer-events: none;
+      opacity: 1;
+
+      & > i {
+        margin-right: 1.25rem;
+
+        @include respond(800) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      @include respond(800) {
+        @include lighten;
+      }
+
+      & > i {
+        margin-right: 1.25rem;
+
+        @include respond(800) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    & > i {
+      transition: margin-right 0.2s;
+      margin-right: 1rem;
+
+      @include respond(800) {
+        margin-right: 0;
+      }
+    }
+
+    @include respond(800) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
+
+// Inputs stretch
+.editProfile,
+.changePassword,
+.options,
+.users {
+  &__inputs,
+  &__content {
+    display: grid;
+    gap: 3rem;
+    flex: 1;
+    align-content: start;
+  }
+}
+
+// EDIT PROFILE
+.editProfile {
+  & > * {
+    grid-column: 1 / -1;
+  }
+
+  &__pic {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    justify-content: start;
+  }
+
+  &__imgs {
+    position: relative;
+  }
+
+  &__img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  &__file {
+    display: none;
+    visibility: hidden;
+
+    &:hover,
+    &:focus {
+      & + img {
+      }
+    }
+  }
+}
+
+// PAYMENT METHODS
+.paymentMethods {
+  &__btns {
+    display: flex;
+    justify-content: end;
+  }
+
+  .cards {
+    @include scrollbar(8px, 8px, var(--c-white));
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-content: start;
+
+    max-height: 40rem;
+    overflow-y: auto;
+  }
+
+  .revealMethods {
+    flex: 1;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    &__panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      justify-self: center;
+      gap: 2rem;
+
+      text-align: center;
+      // border: 2px solid var(--c-grey-light);
+      padding: 3rem;
+      border-radius: 1rem;
+    }
+
+    &__icon {
+      font-size: 5rem;
+      margin-top: -1.9rem;
+      margin-bottom: -2.1rem;
+    }
+  }
+
+  .card {
+    $inner-height: 4rem;
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid var(--c-grey-light);
+    }
+
+    @include respond(400) {
+      justify-content: center;
+      grid-template-columns: auto 1fr;
+    }
+
+    &__img {
+      height: $inner-height;
+    }
+
+    &__info {
+      text-transform: lowercase;
+    }
+
+    &__remove-btn,
+    &__remove-btn:link,
+    &__remove-btn:visited {
+      padding: 0;
+      min-width: auto;
+      height: $inner-height;
+      width: $inner-height;
+      border-radius: 100%;
+      position: relative;
+      color: var(--c-red);
+      font-size: calc(#{$inner-height} / 2);
+
+      @include glassify(var(--c-red-rgb));
+
+      & > .bi {
+        margin-bottom: -0.25rem;
+        margin-right: -0.1rem;
+      }
+
+      &::after {
+        @include loader(var(--c-red));
+      }
+    }
+  }
+}
+
+// CHANGE PASSWORD
+.changePassword {
+}
+
+// FORGOT PASSWORD
+.forgotPassword {
+  &__main {
+    flex: 1;
+
+    display: grid;
+    justify-items: center;
+    align-content: end;
+    gap: 1rem;
+  }
+
+  &__time {
+  }
+}
+
+// ENABLE 2FA
+.enableTwoFactor {
+}
+
+// DISABLE 2FA
+.disableTwoFactor {
+}
+
+// CURRENT PLAN
+.currentPlan {
+  $width: 25rem;
+
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 3.5rem;
+  }
+
+  &__start,
+  &__end {
+    position: absolute;
+    top: calc(100% + 3rem);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--c-secondary);
+  }
+
+  &__start {
+    left: -0.2rem;
+    transform: translate(0%, -50%);
+  }
+
+  &__end {
+    left: 100%;
+    transform: translate(-100%, -50%);
+  }
+
+  .progressBar {
+    height: calc(#{$width} / 2);
+    overflow: hidden;
+
+    &__filler {
+      height: $width;
+      width: $width;
+      border-radius: 100rem;
+      border: 3rem solid var(--c-primary);
+      border-top-color: var(--c-secondary);
+      border-left-color: var(--c-secondary);
+      transform: rotate(135deg); // 50% -> (180 * .5) + 45
+    }
+  }
+
+  .circle {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--c-primary);
+    top: 100%;
+    border-radius: 22rem;
+
+    &--static,
+    &--right {
+      background-color: var(--c-secondary);
+    }
+
+    &--static {
+      left: 0;
+      transform: translate(0, -50%); // DOES NOT MOVE
+    }
+
+    &--left {
+      background-color: var(--c-primary);
+      left: 0;
+      transform: translate(0, -50%) rotate(90deg); // 50% -> 180 * .5
+      transform-origin: calc(#{$width} / 2) 50%;
+    }
+
+    &--right {
+      left: 100%;
+      transform: translate(-100%, -50%);
+    }
+  }
+
+  .planTimeLeft {
+    position: absolute;
+    top: calc(50% + 2.5rem);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+
+    display: grid;
+
+    &--daysLeft {
+    }
+
+    &--progress {
+      font-size: 3rem;
+    }
+
+    &--name {
+    }
+  }
+}
+
+// CANCELLATIONS
+.cancelPayment {
+}
+
+// OPTIONS
+.options {
+  min-height: 40rem;
+
+  @include respond(800) {
+    max-height: none;
+    min-height: 50rem;
+  }
+
+  &__inputs {
+  }
+}
+
+// USERS
+.users {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto) 1fr auto;
+  gap: 3rem;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+    gap: 2rem;
+
+    overflow-y: auto;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: end;
+    gap: 1rem;
+  }
+
+  .search {
+  }
+}
+
+// GET PLAN
+.getPlan {
+  align-items: center;
+  padding: 7.5rem 0;
+}

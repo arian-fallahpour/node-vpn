@@ -1,0 +1,48 @@
+nav.nav
+    img.nav__logo(src="/img/app/logo-1.svg" alt="Logo" title="Logo")
+
+    ul.nav__list
+        li.nav__item
+            a.nav__link.btn.btn__text(href="/") home
+        li.nav__item
+            a.nav__link.btn.btn__text(href="/#section-info") what is a vpn?
+        li.nav__item
+            a.nav__link.btn.btn__text(href="/#section-specs") specifications
+        li.nav__item
+            a.nav__link.btn.btn__text(href="/#section-plans") pricing
+
+    if user
+        .navMenu.dropdown
+            a.btn.dropdown__button.profile(href="/profile")
+                .profile__img
+                    img(src="/img/users/default-1.png")
+                .profile__name
+                    span.profile__name--first=`${user.fullName.split(" ")[0]}`
+                    span.profile__name--last=`${user.fullName.split(" ")[1]}`
+                .profile__icon
+                    i.bi.bi-caret-left-fill
+            ul.dropdown__content.navMenu__list
+                li.navMenu__item
+                    a.btn.btn__glass.navMenu__btn(href="/profile" data-color="yellow") 
+                        i.bi.bi-person-fill
+                        | Profile
+                li.navMenu__item
+                    a.btn.btn__glass.navMenu__btn(href="/profile/options") 
+                        i.bi.bi-gear-fill
+                        | options
+                li.navMenu__item
+                    a.btn.btn__glass.navMenu__btn(href="/profile/security") 
+                        i.bi.bi-shield-lock-fill
+                        | security
+                li.navMenu__item
+                    a.btn.btn__glass.navMenu__btn(href="/profile/plan") 
+                        i.bi.bi-diagram-2-fill
+                        | current plan
+                li.navMenu__item
+                    button.btn.btn__border.navMenu__logout.u-center-text
+                        i.bi.bi-door-closed-fill
+                        | Log out
+    else
+        .nav__credentials
+            a.nav__login.btn.btn__border(href="/login") login
+            a.nav__signup.btn.btn__primary(href="/signup") signup

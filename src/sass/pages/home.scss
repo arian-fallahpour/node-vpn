@@ -1,0 +1,131 @@
+@import "./base";
+
+@import "../layout/header";
+
+@import "../components/planCard";
+@import "../components/tooltip";
+@import "../components/slider";
+
+// INFO
+.section-info {
+}
+
+.info {
+  grid-template-columns: 50rem 1fr;
+
+  @include respond(800) {
+    grid-template-columns: minmax(auto, 50rem);
+    grid-template-rows: 25rem 2fr;
+    gap: 0;
+  }
+
+  &__content {
+    @include secondaryGradient;
+    @include box-shadow-large;
+    @include parallelogram;
+
+    color: var(--c-white);
+    position: relative;
+    padding: 5rem;
+    z-index: 10;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+
+    & > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    @include respond(800) {
+      @include parallelogramRemove;
+      grid-row: 2 / span 1;
+    }
+
+    @include respond(400) {
+      padding: 4rem;
+    }
+  }
+
+  &__btn {
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__image img {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @include respond(900) {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    @include respond(800) {
+      width: auto;
+      height: calc(100% + 15rem);
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+// SPECS
+.section-specs {
+}
+
+.specs {
+  &__image {
+    position: relative;
+
+    @include respond(800) {
+      @include image-phone;
+    }
+  }
+
+  &__image img {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__content {
+    color: var(--c-black);
+
+    display: grid;
+    justify-items: start;
+
+    & > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    @include respond(800) {
+      & > *:first-child,
+      & > *:last-child {
+        justify-self: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &__btn {
+    justify-self: start;
+
+    @include respond(500) {
+      justify-self: center;
+    }
+  }
+}
+
+// PLANS
+.section-plans {
+}

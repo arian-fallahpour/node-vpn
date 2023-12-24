@@ -1,0 +1,356 @@
+.btn {
+  $padding-left: 2rem;
+  $padding-top: 1rem;
+  $border-radius: 0.5rem;
+
+  position: relative;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: inline-block;
+  padding: $padding-top $padding-left;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  min-width: 8.5rem;
+
+  transition: all 0.2s ease-out;
+
+  & > i:not(:first-child):not(i.success-icon) {
+    margin-left: 0.75rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__primary,
+  &__secondary,
+  &__red,
+  &__glass,
+  &__shine,
+  &__border,
+  &__ripple,
+  &__slide {
+    overflow: hidden;
+    border-radius: $border-radius;
+
+    &::selection,
+    & *::selection {
+      display: none;
+      background-color: transparent;
+    }
+  }
+
+  // SOLID BUTTONS
+  // primary colour button
+  &__primary,
+  &__primary:link,
+  &__primary:visited {
+    background-color: var(--c-primary);
+    color: var(--c-white);
+
+    &:hover,
+    &:focus {
+      @include darken;
+    }
+  }
+
+  // secondary colour button
+  &__secondary,
+  &__secondary:link,
+  &__secondary:visited {
+    @include secondaryGradient;
+    color: var(--c-white);
+
+    background-position: 0%;
+    &:hover,
+    &:focus {
+      @include darken;
+    }
+  }
+
+  // red colour button
+  &__red,
+  &__red:link,
+  &__red:visited {
+    background-color: var(--c-red);
+    color: var(--c-white);
+
+    &:hover,
+    &:focus {
+      @include darken;
+    }
+  }
+
+  // EFFECT BUTTONS
+  // Slide button
+  &__slide,
+  &__slide:link,
+  &__slide:visited {
+    padding: calc(#{$padding-top} + 1px) calc(#{$padding-left} + 1px);
+    padding-left: calc(3 * #{$padding-top} + #{$padding-left} + 1em);
+    border-radius: 0;
+    color: var(--c-primary);
+
+    display: flex;
+    align-items: center;
+
+    & > span {
+      z-index: 10;
+      pointer-events: none;
+
+      transition: all 0.2s ease-out;
+    }
+
+    & > .btn__slide--icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: calc(2 * #{$padding-top} + 1em);
+      width: calc(2 * #{$padding-top} + 1em);
+      background-color: var(--c-primary);
+      color: var(--c-white);
+      border-radius: $border-radius;
+      font-size: 2.5rem;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: start;
+
+      transition: all 0.2s ease-out;
+
+      & > .bi {
+        margin-left: $padding-top;
+        height: 1em;
+        width: 1em;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all 0.2s ease-out;
+
+        &::before {
+          height: 1em;
+          width: 1em;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      & > .btn__slide--icon {
+        width: 100%;
+      }
+
+      & i {
+        transform: translateX($padding-top);
+      }
+
+      & > span {
+        color: var(--c-white);
+      }
+    }
+  }
+
+  // glass button
+  &__glass,
+  &__glass:link,
+  &__glass:visited {
+    background-color: transparent;
+    color: var(--c-primary);
+
+    @include glassify(var(--c-primary-rgb));
+  }
+
+  // shine button
+  &__shine,
+  &__shine:link,
+  &__shine:visited {
+    background-color: var(--c-primary);
+    color: var(--c-white);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      transition: all 0.3s ease-in;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 3rem;
+      height: 10rem;
+      left: 110%;
+      top: -100%;
+      transform: rotate(-15deg);
+      background-color: white;
+    }
+
+    &:hover,
+    &:focus {
+      @include darken;
+
+      &::after {
+        left: -40%;
+      }
+    }
+  }
+
+  // border button
+  &__border,
+  &__border:link,
+  &__border:visited {
+    border: 2px solid var(--c-primary);
+    color: var(--c-primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--c-primary);
+      color: var(--c-white);
+    }
+  }
+
+  // ripple button
+  &__ripple,
+  &__ripple:link,
+  &__ripple:visited {
+  }
+
+  &__reveal,
+  &__reveal:link,
+  &__reveal:visited {
+    min-width: auto;
+
+    &.btn > i.bi.bi-eye-slash-fill {
+      margin: 0;
+    }
+  }
+
+  // TEXT BUTTONS
+  // text button
+  &__text,
+  &__text:link,
+  &__text:visited {
+    color: var(--c-black);
+    min-width: auto;
+
+    &:hover,
+    &:focus {
+      color: var(--c-primary);
+    }
+  }
+
+  // link button
+  &__link,
+  &__link:link,
+  &__link:visited {
+    color: var(--c-primary);
+    padding: 0;
+    font-size: inherit;
+    text-transform: none;
+    position: relative;
+    min-width: auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      background-color: var(--c-primary);
+      height: 2px;
+      width: 0;
+
+      transition: all 0.2s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  // BUTTON STATES --> Add these classes to button
+  // loading state
+  &--loading,
+  &--loading:link,
+  &--loading:visited {
+    &:disabled {
+      opacity: 1;
+    }
+
+    & > span,
+    & > .bi {
+      visibility: hidden;
+    }
+
+    &::after {
+      @include loader(var(--c-white));
+
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+
+  // success state
+  &--success,
+  &--success:link,
+  &--success:visited {
+    overflow: hidden;
+    background-color: var(--c-green);
+    background-image: none;
+
+    &:disabled {
+      opacity: 1;
+    }
+
+    & > span,
+    & > .bi:not(.success-icon) {
+      visibility: hidden;
+    }
+
+    & > i.success-icon {
+      display: block;
+
+      // animation: success-appear 0.35s ease-out;
+    }
+  }
+
+  // INNER ELEMENTS
+  & > * {
+    color: inherit;
+  }
+
+  & .ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 999rem;
+
+    // animation: forwards scaleRipple 0.5s ease-out;
+  }
+
+  & > .success-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    font-size: 2.5rem;
+    color: var(--c-white);
+    display: none;
+
+    transform: translate(-50%, -50%);
+  }
+}

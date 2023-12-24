@@ -1,0 +1,59 @@
+.profile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  background-color: inherit;
+  align-items: center;
+  gap: 1.5rem;
+
+  color: var(--c-primary-dark);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+
+  &:hover,
+  &:focus {
+    background-color: var(--c-grey-light);
+  }
+
+  &__img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 22rem;
+    overflow: hidden;
+    border: 2px solid var(--c-primary);
+    background-color: var(--c-white);
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-items: center;
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(mobile) {
+      display: none;
+    }
+
+    & > * {
+      transition: transform 0.2s;
+    }
+  }
+}

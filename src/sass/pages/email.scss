@@ -1,0 +1,148 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+@import "../base/base";
+@import "../base/typography";
+@import "../base/utilities";
+
+@import "../components/button";
+
+table,
+tbody,
+tr,
+td {
+  width: 100%;
+  display: inline-block;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  @include respond(1200) {
+    font-size: 56.25%;
+  }
+
+  @include respond(900) {
+    // 8px
+    font-size: 50%;
+  }
+
+  @include respond(1920) {
+    // 12px
+    font-size: 65%;
+  }
+}
+
+.body {
+  min-height: 100vh;
+  padding: 4rem;
+  background-image: linear-gradient(
+    to top right,
+    rgba(var(--c-primary-rgb), 1) 0%,
+    rgba(var(--c-green-rgb), 1) 100%
+  );
+
+  @include respond(500) {
+    padding: 0;
+  }
+}
+
+.container {
+  background-color: var(--c-white);
+  display: inline-block;
+  max-width: 60rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+
+  @include respond(500) {
+    border-radius: 0;
+    max-width: 100%;
+  }
+}
+
+.inner {
+  display: inline-block;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+
+  & > tr:not(:last-child) > td {
+  }
+}
+
+// LAYOUT
+.nav {
+  text-align: center;
+  padding: 5rem 0;
+
+  & > * {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  &__logo {
+    height: 7.5rem;
+  }
+}
+
+.footer {
+  background-color: var(--c-grey-light);
+  padding: 5rem 3rem;
+  margin-top: 5rem;
+
+  & > tbody > tr:not(:last-child) > td {
+    padding: 0.75rem 0;
+  }
+
+  &__links > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+// TEMPLATES
+.template {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0 3rem;
+
+  &__inner {
+    max-width: 40rem;
+
+    & > tr:not(:last-child) > td {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+  }
+
+  &__paragraphs {
+    & > *:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__url {
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  &__code {
+    background-color: var(--c-grey-light);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    display: inline-block;
+    margin: 0 auto;
+    letter-spacing: 0.5rem;
+  }
+}
+
+.confirm {
+}

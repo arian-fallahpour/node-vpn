@@ -1,0 +1,232 @@
+// BASIC
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.collapse {
+  display: none;
+}
+
+// MARGIN ALL
+.u-margin-em {
+  margin: 1em !important;
+}
+
+.u-margin-sm {
+  margin: 1rem !important;
+}
+
+.u-margin-me {
+  margin: 2rem !important;
+}
+
+.u-margin-la {
+  margin: 3rem !important;
+}
+
+.u-margin-xl {
+  margin: 5rem !important;
+
+  @include respond(900) {
+    margin: 4rem !important;
+  }
+}
+
+// MARGIN TOP
+.u-margin-top-em {
+  margin-top: 1em !important;
+}
+
+.u-margin-top-sm {
+  margin-top: 1rem !important;
+}
+
+.u-margin-top-me {
+  margin-top: 2rem !important;
+}
+
+.u-margin-top-la {
+  margin-top: 3rem !important;
+}
+
+.u-margin-top-xl {
+  margin-top: 5rem !important;
+
+  @include respond(900) {
+    margin-top: 4rem !important;
+  }
+}
+
+// MARGIN BOTTOM
+.u-margin-bottom-em {
+  margin-bottom: 1em !important;
+}
+
+.u-margin-bottom-sm {
+  margin-bottom: 1rem !important;
+}
+
+.u-margin-bottom-me {
+  margin-bottom: 2rem !important;
+}
+
+.u-margin-bottom-la {
+  margin-bottom: 3rem !important;
+}
+
+.u-margin-bottom-xl {
+  margin-bottom: 5rem !important;
+
+  @include respond(900) {
+    margin-bottom: 4rem !important;
+  }
+}
+
+// PADDING ALL
+.u-padding-em {
+  padding: 1em !important;
+}
+
+.u-padding-sm {
+  padding: 1rem !important;
+}
+
+.u-padding-me {
+  padding: 2rem !important;
+}
+
+.u-padding-la {
+  padding: 3rem !important;
+}
+
+.u-padding-xl {
+  padding: 5rem !important;
+}
+
+// PADDING TOP
+.u-padding-top-em {
+  padding-top: 1em !important;
+}
+
+.u-padding-top-sm {
+  padding-top: 1rem !important;
+}
+
+.u-padding-top-me {
+  padding-top: 2rem !important;
+}
+
+.u-padding-top-la {
+  padding-top: 3rem !important;
+}
+
+.u-padding-top-xl {
+  padding-top: 5rem !important;
+}
+
+// PADDING BOTTOM
+.u-padding-bottom-em {
+  padding-bottom: 1em !important;
+}
+
+.u-padding-bottom-sm {
+  padding-bottom: 1rem !important;
+}
+
+.u-padding-bottom-me {
+  padding-bottom: 2rem !important;
+}
+
+.u-padding-bottom-la {
+  padding-bottom: 3rem !important;
+}
+
+.u-padding-bottom-xl {
+  padding-bottom: 5rem !important;
+}
+
+// TEXT
+.u-center-text {
+  text-align: center;
+}
+
+.u-center-box {
+  margin: 0 auto;
+}
+
+.u-justify-text {
+  text-align: justify;
+}
+
+.u-uppercase-text {
+  text-transform: uppercase !important;
+}
+
+.u-none-text {
+  text-transform: none !important;
+}
+
+// GRID
+.u-grid-content-center {
+  justify-content: center;
+  align-content: center;
+}
+
+.u-grid-items-center {
+  justify-items: center;
+  align-items: center;
+}
+
+.u-grid-col-span {
+  grid-column: 1 / -1;
+}
+
+.u-grid-row-span {
+  grid-row: 1 / -1;
+}
+
+.u-justify-self-start {
+  justify-self: start;
+}
+
+.u-justify-self-end {
+  justify-self: end;
+}
+
+.u-justify-self-center {
+  justify-self: center;
+}
+
+.u-justify-self-stretch {
+  justify-self: stretch;
+}
+
+.u-align-self-start {
+  align-self: start;
+}
+
+.u-align-self-end {
+  align-self: end;
+}
+
+.u-align-self-center {
+  align-self: center;
+}
+
+.u-align-self-stretch {
+  align-self: stretch;
+}
+
+// BACKGROUND
+.u-background-primary {
+  background-color: var(--c-primary) !important;
+}
+
+.u-background-secondary {
+  background-color: var(--c-secondary) !important;
+}

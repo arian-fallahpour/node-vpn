@@ -1,0 +1,44 @@
+.userCard {
+  $background: var(--c-grey-light);
+  background-color: $background;
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-top: 3.5rem;
+  position: relative;
+  color: var(--c-secondary);
+  border-radius: 1rem;
+  font-size: 1.3rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  align-content: space-between;
+  gap: 1rem;
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__img {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  &__list {
+    list-style: none;
+
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  &__item {
+  }
+
+  &__btn {
+    font-size: inherit;
+    padding: 0.75rem 0;
+  }
+}

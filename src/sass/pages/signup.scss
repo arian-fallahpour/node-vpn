@@ -1,0 +1,10 @@
+@import "./base";
+
+@import "../components/notice";
+@import "../components/panel";
+@import "../components/credentials";
+
+#password:focus ~ .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

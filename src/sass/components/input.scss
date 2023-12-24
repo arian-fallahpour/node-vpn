@@ -1,0 +1,447 @@
+.inputField {
+  $pd-top: 1rem;
+  $pd-left: 1.5rem;
+
+  display: grid;
+  position: relative;
+
+  & input {
+    border: 2px solid var(--c-grey-light);
+    color: var(--c-black);
+    background-color: var(--c-white);
+    padding: $pd-top $pd-left;
+    border-radius: 0.75rem;
+
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      color: transparent;
+      visibility: hidden;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+      border-color: var(--c-grey);
+    }
+
+    &:focus {
+      border-color: var(--c-primary);
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      & + label {
+        top: -1rem;
+        left: 0.75rem;
+        pointer-events: auto;
+      }
+
+      &::placeholder {
+        color: var(--c-grey-dark);
+        visibility: visible;
+      }
+    }
+
+    &:invalid + label {
+      color: var(--c-red);
+    }
+  }
+
+  & label {
+    font-weight: 500;
+    text-transform: capitalize;
+    position: absolute;
+    top: 50%;
+    left: 1.7rem;
+    pointer-events: none;
+    color: var(--c-black);
+
+    transform: translateY(-50%);
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  &--pass,
+  &--btn {
+    & button {
+      box-shadow: none;
+      min-width: auto;
+    }
+  }
+
+  // Two Factor code input
+  &--code {
+    justify-items: center;
+
+    & input {
+      max-width: 20rem;
+      font-size: 1.75rem;
+      letter-spacing: 0.5rem;
+      text-align: center;
+
+      // functionality
+      &:not(:placeholder-shown),
+      &:focus {
+        & + label {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    & label {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  // Input with visibility toggle
+  &--pass {
+    display: grid;
+    grid-template-columns: 1fr 5rem;
+
+    & input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      border-right: none;
+    }
+
+    & button {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      font-size: 2rem;
+      padding: 0;
+
+      display: grid;
+      align-items: center;
+      justify-content: center;
+
+      & .bi-eye-slash-fill {
+        display: none;
+      }
+
+      &.revealed {
+        & .bi-eye-fill {
+          display: none;
+        }
+
+        & .bi-eye-slash-fill {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // Input with button icon changed
+  &--shown {
+    & .bi-eye-fill {
+      display: none !important;
+    }
+
+    & .bi-eye-slash-fill {
+      display: block !important;
+    }
+  }
+
+  // Input with button
+  &--btn {
+    display: grid;
+    grid-template-columns: 1fr 5rem;
+
+    // input
+    & input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      border-right: none;
+    }
+
+    // button
+    & button {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      padding: 0;
+
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Input with search icon
+  &--search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    & input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+
+    & button {
+      border-radius: 0 0.5rem 0.5rem 0;
+      min-width: auto;
+    }
+  }
+
+  // Input with no border
+  &--noBorder {
+    & input {
+      border: none;
+    }
+  }
+
+  &--bgSecondary {
+    & input {
+      border: none;
+
+      & + label {
+        color: var(--c-secondary-light);
+      }
+
+      &:focus + label,
+      &:not(:placeholder-shown) + label {
+        color: var(--c-white);
+      }
+    }
+  }
+
+  &--bgLightGrey {
+    & input {
+      border-color: var(--c-white);
+    }
+  }
+}
+
+.inputStripe {
+  border: 2px solid var(--c-grey-light);
+  color: var(--c-black);
+  background-color: var(--c-white);
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  position: relative;
+
+  transition: all 0.2s ease-in-out;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 1.7rem;
+    transform: translateY(-50%);
+  }
+
+  // label
+  &::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: var(--c-black);
+    text-transform: capitalize;
+    pointer-events: none;
+
+    top: -2.4rem;
+    left: 0.6rem;
+    transform: none;
+    pointer-events: default;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+    border-color: var(--c-grey);
+  }
+
+  &--empty {
+    &::before {
+      top: 50%;
+      left: 1.7rem;
+      transform: translateY(-50%);
+    }
+  }
+
+  &--focus,
+  &--numberFocus,
+  &--numberDefault {
+    &::before {
+      top: -1.2rem;
+      left: 0.75rem !important;
+      pointer-events: auto;
+    }
+  }
+
+  &--focus {
+    border-color: var(--c-primary) !important;
+  }
+
+  &--invalid::before {
+    color: var(--c-red);
+  }
+
+  &--number {
+    &::before {
+      left: 45px;
+    }
+  }
+
+  &--numberFocus {
+    border-color: var(--c-primary) !important;
+  }
+
+  &--numberDefault {
+  }
+}
+
+/*
+  .inputSwitch
+    label(for="recurring")
+    input(type="checkbox" id="recurring" name="recurring" title="Toggle dark mode" checked=plan.options.recurring)
+*/
+.inputSwitch {
+  $inner-width: 1.9rem;
+  $outer-padding: 0.4rem;
+
+  // Functionality
+  & input {
+    display: none;
+
+    &:checked + label::after {
+      background-color: var(--c-primary);
+      left: calc(100% - #{$outer-padding});
+      transform: translate(-100%, -50%);
+    }
+  }
+
+  // Outer
+  & label {
+    position: relative;
+    display: block;
+    height: calc(#{$inner-width} + 2 * #{$outer-padding});
+    width: calc(3 * #{$inner-width});
+    border-radius: 22rem;
+    background-color: var(--c-grey-light);
+    cursor: pointer;
+  }
+
+  // Inner
+  & label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: $outer-padding;
+    display: block;
+    width: $inner-width;
+    height: $inner-width;
+    border-radius: 22rem;
+    background-color: var(--c-secondary);
+    transform: translate(0, -50%);
+
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+/*
+  .inputQuantity
+    button.btn
+      i.bi.bi-caret-left-fill
+    input(type="number" min="1" max="10" id="quantity" value="1")
+    button.btn
+      i.bi.bi-caret-right-fill
+*/
+.inputQuantity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  background-color: var(--c-grey-light);
+  padding: 0.3rem;
+  border-radius: 22rem;
+
+  & input {
+    border: 0;
+    text-align: center;
+    background-color: transparent;
+    -webkit-appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    & {
+      -moz-appearance: textfield;
+    }
+  }
+
+  & button {
+    position: relative;
+    min-width: auto;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    border-radius: 22rem;
+    font-size: 1.3rem;
+    color: var(--c-grey);
+
+    @include glassify(var(--c-primary-light-rgb), 0.1, 0.2);
+
+    & i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 0.1rem;
+    }
+  }
+}
+
+/*
+  .inputRadio
+    input(type="radio" name="payment-method" id="creditDebit" value="credit" checked)
+    label(for="creditDebit") Credit/Debit
+*/
+.inputRadio {
+  $circle-width: 2rem;
+  $circle-padding: 0.4rem;
+
+  padding: 0.25rem 0;
+
+  & input {
+    display: none;
+
+    &:checked + label {
+      color: var(--c-primary);
+      font-weight: 600;
+
+      &::before {
+        background-color: var(--c-primary);
+        border-color: var(--c-primary);
+      }
+    }
+  }
+
+  & label {
+    cursor: pointer;
+    text-transform: capitalize;
+
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    transition: all 0.1s ease-in-out;
+
+    // Indicator
+    &::before {
+      content: "";
+      display: block;
+      height: $circle-width;
+      width: $circle-width;
+      border-radius: 22rem;
+      border: $circle-padding solid var(--c-secondary);
+
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

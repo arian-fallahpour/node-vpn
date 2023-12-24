@@ -1,0 +1,25 @@
+extends layout/_base
+
+block content
+    tr
+        td
+            table.template
+                tbody.template__inner
+                    tr
+                        td.template__title
+                            h2.header-2 account confirmation
+                    tr 
+                        td.template__paragraphs
+                            p.paragraph Thank you for sending a confirmation!
+                            p.paragraph Click the link below to confirm your account. This will enable many features, such as the ability to buy plans. We do this in order to prevent spam and malicious users from doing anything harmful!
+
+                    tr
+                        td 
+                            a.btn.btn__primary(href=link) confirm
+                    
+                    tr
+                        td.template_paragraphs
+                            p.paragraph Button not working? Copy and paste the URL below:
+                            p.paragraph.template__url(href=link)=link
+                        
+

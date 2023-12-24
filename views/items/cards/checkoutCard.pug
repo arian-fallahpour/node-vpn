@@ -1,0 +1,22 @@
+.checkoutCard(data-id="123nkl23nk12321" data-type="plan")
+    .checkoutCard__image
+        img(src=`/img/app/device-3.svg`)
+    .checkoutCard__content
+        .checkoutCard__main
+            h5.header-5.checkoutCard__name one month plan
+            .checkoutCard__duration 
+                .bt.bi-stopwatch
+                |  1 month
+        .checkoutCard__quantity
+            .inputQuantity
+                button.btn.btn__glass
+                    i.bi.bi-caret-left-fill
+                input(type="number" id="input-quantity" name="quantity" value="1" min="1" max="10")
+                button.btn.btn__glass
+                    i.bi.bi-caret-right-fill
+        .checkoutCard__price 
+            .checkoutCard__price--cost $4.99
+            .checkoutCard__price--time monthly
+        button.btn.btn__glass.checkoutCard__remove
+            svg.bi(width='1em' height='1em' fill='currentColor')
+                use(xlink:href='/img/bootstrap-icons.svg#trash3')

@@ -1,0 +1,88 @@
+// DATA ATTRIBUTE
+[data-tooltip] {
+  position: relative;
+
+  &:hover::after,
+  &:focus::after,
+  &:hover::before,
+  &:focus::before {
+    visibility: visible;
+  }
+
+  &::before,
+  &::after {
+    background-color: var(--c-grey-light);
+    color: var(--c-grey-dark);
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    font-size: 1.1rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.3rem;
+    transform: translate(-50%, 50%) rotate(45deg);
+  }
+
+  &::after {
+    content: attr(data-tooltip);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.5rem;
+    top: calc(100% + 1rem);
+    transform: translateX(-50%);
+  }
+}
+
+// NORMAL TOOLTIP
+.tooltip {
+  @include box-shadow-small;
+
+  visibility: hidden;
+  opacity: 0;
+  width: fit-content;
+
+  padding: 2rem;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 0.5rem;
+
+  transition: opacity 0.2s, visibility 0.2s, transform;
+
+  &,
+  &::before {
+    position: absolute;
+    background-color: var(--c-white);
+  }
+
+  &--right {
+    left: calc(100% + 1rem);
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &::before {
+      // visibility: hidden;
+      left: 0;
+    }
+  }
+
+  // & > * {
+  //   font-size: 1.25rem;
+  // }
+
+  &::before {
+    content: "";
+    border-radius: 0.2rem;
+    height: 1rem;
+    width: 1rem;
+    left: 50%;
+    top: 0.1rem;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

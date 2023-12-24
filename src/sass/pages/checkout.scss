@@ -1,0 +1,308 @@
+@import "./base";
+
+@import "../components/notice";
+@import "../components/paymentForm";
+@import "../components/checkoutCard";
+@import "../components/panel";
+@import "../components/slider";
+
+// CHECKOUT
+.section-checkout {
+}
+
+.checkout {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 2fr 1fr;
+  gap: 5rem;
+  grid-template-rows: auto 1fr;
+
+  @include respond(800) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.slider {
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+  }
+
+  &__back {
+    grid-column: 1 / span 1;
+  }
+
+  &__next {
+    grid-column: 2 / span 1;
+  }
+
+  .dots {
+    display: grid;
+    justify-content: center;
+    padding-top: 2.5rem;
+    grid-column: 1 / -1;
+
+    & > * {
+      grid-row: 1 / span 1;
+    }
+  }
+}
+
+.dot {
+  $line-length: 20rem;
+  $line-height: 0.3rem;
+  $dot-width: 2.5rem;
+  $color-default: var(--c-grey);
+  $color-active: var(--c-primary);
+  $color-hover: var(--c-primary-dark);
+
+  padding: 0;
+  height: $dot-width;
+  width: $dot-width;
+  background-color: transparent;
+  border-radius: 100%;
+  color: $color-default;
+  border: $line-height solid currentColor;
+  position: relative;
+  min-width: auto;
+
+  &.passed,
+  &.active {
+    color: $color-active;
+    background-color: currentColor;
+
+    &:not(:first-child)::before {
+      background-color: $color-active;
+    }
+  }
+
+  &:disabled {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-hover;
+  }
+
+  // Line
+  &:not(:first-child) {
+    margin-left: $line-length;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: calc(100% + #{$line-height});
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      background-color: $color-default;
+      height: $line-height;
+      width: $line-length;
+      pointer-events: none;
+
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  // Header
+  & span {
+    position: absolute;
+    width: max-content;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.slides {
+  height: 65rem;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  padding: 0 5rem;
+  height: 100%;
+  max-height: 100%;
+  width: calc(100% + 10rem);
+  left: -5rem;
+
+  &--1,
+  &--2,
+  &--3 {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    gap: 3rem;
+  }
+
+  &--1 {
+  }
+  &--2 {
+  }
+  &--3 {
+  }
+}
+
+.plans,
+.orderOptions,
+.paymentForms {
+  @include scrollbar(0.8rem, 1.5rem);
+
+  flex: 1;
+  overflow-y: auto;
+}
+
+// ORDER SUMMARY
+.plans {
+}
+
+// ORDER OPTIONS
+.orderOptions {
+  display: grid;
+  gap: 3rem;
+  align-content: start;
+
+  .paymentMethod {
+  }
+
+  .paymentOptions {
+  }
+
+  .paymentOption {
+    display: grid;
+    gap: 0 3rem;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+// ORDER PAYMENT
+.paymentForms {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: inherit;
+}
+
+.supportedCards {
+  justify-self: center;
+
+  display: flex;
+  gap: 1rem;
+
+  &__card img {
+    height: 3rem;
+  }
+}
+
+// SIDEBAR
+.sidebar {
+  display: grid;
+  align-content: start;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  font-size: 1.5rem;
+
+  @include respond(800) {
+    grid-row: 1 / span 1;
+
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
+
+  @include respond(700) {
+    grid-template-columns: minmax(auto, 35rem);
+  }
+}
+
+.panel {
+}
+
+.orderCost {
+  display: flex;
+  flex-direction: column;
+  min-height: 32.5rem;
+
+  &__content {
+    flex: 1;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 5rem;
+  }
+
+  .prices {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+  }
+
+  .price {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    gap: 0 1rem;
+
+    @include respond(300) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      justify-items: center;
+      gap: 0.5rem;
+    }
+
+    &__name {
+      font-weight: 500;
+    }
+
+    &__cost {
+      &--money {
+      }
+
+      &--duration::before {
+        content: " x ";
+        display: inline;
+      }
+    }
+
+    &__total {
+      grid-row: 1 / -1;
+      grid-column: 2 / span 1;
+
+      @include respond(300) {
+        grid-row: 1 / span 1;
+        grid-column: auto;
+        font-size: 1.35rem;
+      }
+
+      background-color: var(--c-grey-light);
+      color: var(--c-secondary-light);
+      font-weight: 500;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--c-white);
+    background-color: var(--c-primary);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    position: relative;
+  }
+}
+
+.coupons {
+  grid-template-rows: 1fr auto;
+  gap: 3rem;
+}

@@ -1,0 +1,50 @@
+@mixin parallelogramRemove {
+  transform: skewX(0);
+
+  & > span {
+    display: inline-block;
+  }
+
+  & > * {
+    transform: skewX(0);
+  }
+}
+
+@mixin parallelogramInner {
+  border-radius: 0.9rem 1rem 0.9rem 1rem;
+  transform: skewX(-10deg);
+
+  & > span {
+    display: inline-block;
+  }
+
+  & > * {
+    transform: skewX(10deg);
+  }
+}
+
+@mixin parallelogramReverse {
+  border-radius: 0.9rem 1rem 0.9rem 1rem;
+  transform: skewX(10deg);
+
+  & > span {
+    display: inline-block;
+  }
+
+  & > * {
+    transform: skewX(-10deg);
+  }
+}
+
+@mixin parallelogram {
+  border-radius: 0.9rem 1rem 0.9rem 1rem;
+  transform: skewX(-10deg);
+
+  & > span {
+    display: inline-block;
+  }
+
+  & > * {
+    transform: skewX(10deg);
+  }
+}

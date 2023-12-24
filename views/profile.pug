@@ -1,0 +1,50 @@
+extends _base
+include items/error
+include items/loader
+
+block append head
+    link(rel='stylesheet' href=`/css/profile.css`)
+
+block content
+    section.section.section--profile
+        .row
+            .settings
+                .sidebar
+                    .tab.panel.panel--secondary
+                        h4.header-4.tab__header Personal
+                        ul.ul.tab__list
+                            li.tab__item
+                                button.btn.btn__ripple.tab__btn.active(data-page="profile") 
+                                    i.bi.bi-person-fill
+                                    text profile
+                            li.tab__item
+                                button.btn.btn__ripple.tab__btn(data-page="options")
+                                    i.bi.bi-gear-fill
+                                    text options
+                            li.tab__item
+                                button.btn.btn__ripple.tab__btn(data-page="security")
+                                    i.bi.bi-shield-lock-fill
+                                    text security
+                            li.tab__item
+                                button.btn.btn__ripple.tab__btn(data-page="plan")
+                                    i.bi.bi-diagram-2-fill
+                                    text current plan
+
+                    if user.role === "admin"
+                        .tab.panel.panel--secondary
+                            h4.header-4.tab__header Admin
+                            ul.ul.tab__list
+                                li.tab__item
+                                    button.btn.btn__ripple.tab__btn(data-page="users")
+                                        i.bi.bi-people-fill
+                                        text manage users
+                                li.tab__item
+                                    button.btn.btn__ripple.tab__btn(data-page="products")
+                                        i.bi.bi-file-earmark-plus-fill
+                                        text products
+                .settings__main
+                    .notice
+                    .settings__content
+                        include items/profile/paymentMethods
+
+                            

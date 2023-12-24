@@ -1,0 +1,60 @@
+
+extends _base
+include items/cards/planCard
+
+block append head
+    link(rel='stylesheet' href=`/css/home.css`)
+
+block content
+    include layout/header
+
+    //- SECTION INFO
+    //- e.section.section-info#section-info.fadeout
+    section.section.section-info#section-info
+        h2.header-2.u-margin-bottom-xl.u-center-text.header-gradient What is a vpn?
+        .info.row.layout-row
+            .info__content
+                h4.header-4 it's your internet guardian
+                p.paragraph Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at. Eget sit amet tellus cras adipiscing enim eu turpis egestas.
+                p.paragraph Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at.
+                a.btn.btn__shine.info__btn 
+                    span Learn more
+                    i.bi.bi-arrow-right
+            .info__image
+                img(src="/img/app/database-1.svg" title="Secure server" alt="Secure server")
+            
+    //- SECTION SPECS
+    section.section.section-specs#section-specs
+        h2.header-2.u-margin-bottom-xl.u-center-text.header-gradient Specifications
+        .specs.row.layout-row
+            .specs__image
+                img(src="/img/app/database-2.svg" alt="Advanced servers" title="Advanced servers")
+            .specs__content
+                h4.header-4 best in class hardware
+                p.paragraph Libero justo laoreet sit amet cursus sit amet. Sed adipiscing diam donec adipiscing tristique. At tempor commodo ullamcorper a lacus vestibulum sed arcu non. Condimentum lacinia quis vel eros donec.
+                ul.ul
+                    li.li 
+                        i.bi.bi-shield-lock
+                        |Encryption
+                    li.li 
+                        i.bi.bi-eye-slash
+                        |Hide internet traffic
+                    li.li 
+                        i.bi.bi-person-lines-fill
+                        |Data is not comprised
+                    li.li
+                        i.bi.bi-slash-circle-fill
+                        |Blocks ads and malware
+                a.btn.btn__slide
+                    .btn__slide--icon
+                        i.bi.bi-arrow-right-short
+                    span Learn more
+
+
+    //- SECTION PLANS
+    section.section.section-plans#section-plans
+        h2.header-2.u-margin-bottom-xl.u-center-text.header-gradient Pricing
+        .planCards.row
+            each plan in plans
+                +planCard(plan)
+                                    

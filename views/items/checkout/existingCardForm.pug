@@ -1,0 +1,10 @@
+form.paymentForm.existingCard
+    .paymentForm__header
+        p.paragraph.u-center-text Choose a card to complete the payment
+        .notice
+    .cards
+        include ../cards/existingCard
+    button.btn.btn__primary.paymentForm__submit(title="Pay $4.99" disabled)
+        span pay $4.99
+        i.bi.bi-credit-card-2-front-fill
+        i.bi.bi-check-lg.success-icon

@@ -1,0 +1,39 @@
+form.paymentForm.newCard
+    .paymentForm__header
+        p.paragraph.u-center-text Enter your card's details below
+        .notice
+    .newCard__inputs
+        .inputField#card-name
+            input(type="text" name="name" placeholder="Name" spellcheck="false" title="Type your card name")
+            label(for="name") cardholder
+        .inputField#card-postalCode
+            input(type="text" name="postalCode" placeholder="M5T 1T4" spellcheck="false" title="Type your postal code")
+            label(for="postalCode") postal code
+        .inputField#card-number(data-label="card number")
+            input(type="text" name="postalCode" placeholder="1234 1234 1234 1234" spellcheck="false" title="Type your postal code")
+            label(for="postalCode") card number
+        .inputField#card-expiry(data-label="expiry")
+            input(type="text" name="postalCode" placeholder="MM/YY" spellcheck="false" title="Type your postal code")
+            label(for="postalCode") expiry
+        .inputField#card-cvc(data-label="cvc")
+            input(type="text" name="postalCode" placeholder="CVC" spellcheck="false" title="Type your postal code")
+            label(for="postalCode") CVC
+    button.btn.btn__primary.paymentForm__submit(title="Pay $4.99")
+        span pay $4.99
+        i.bi.bi-credit-card-2-front-fill
+        i.bi.bi-check-lg.success-icon
+.supportedCards
+    .supportedCards__card
+        img(src="/img/app/cards/amex.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/diners.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/discover.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/jcb.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/maestro.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/mastercard.svg")
+    .supportedCards__card
+        img(src="/img/app/cards/visa.svg")

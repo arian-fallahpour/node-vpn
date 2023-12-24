@@ -1,0 +1,44 @@
+extends _base
+include items/error
+
+block append head
+    link(rel='stylesheet' href=`/css/login.css`)
+
+block content
+    section.section.section--panel
+        .row
+            .col.u-grid-content-center.col-panel
+                .panel.login
+                    h2.header-2.u-center-text Login
+                    h6.header-6.u-center-text.login__message.u-none-text=message
+                    .notice
+                    .slider.slider--login
+                        .slides
+                            form.slide.slide--1.slide--main.credentialsForm
+                                .credentialsForm__inputs
+                                    .inputField.inputField--bgLightGrey
+                                        input(type="text" id="email" name="email" placeholder="test@example.com" spellcheck="false" title="Type your email")
+                                        label(for="email") email
+                                    .inputField.inputField--pass.inputField--bgLightGrey
+                                        input(type="password" id="password" name="password" placeholder="password" title="Type your password")
+                                        label(for="password") password
+                                        button.btn.btn__primary.btn__reveal(title="View password" type="button")
+                                            i.bi.bi-eye-fill
+                                            i.bi.bi-eye-slash-fill
+                                button.btn.btn__secondary.credentialsForm__submit(title="Submit form" data-redirect=redirect)
+                                    span login
+                                    i.bi.bi-check-lg.success-icon
+                            form.slide.slide--2.twoFactorForm
+                                h6.header-6.u-center-text two factor authentication
+                                .inputField.inputField--code.inputField--bgLightGrey
+                                    input(type="text" id="twoFactorCode" name="twoFactorCode" placeholder="f9d9407d12" spellcheck="false" title="Type the two factor authentication code" maxlength="10")
+                                    label(for="twoFactorCode") 10 letter code
+                                button.btn.btn__secondary.twoFactorForm__submit(title="Submit form" data-redirect=redirect)
+                                    span authenticate
+                                    i.bi.bi-check-lg.success-icon
+                    p.paragraph.u-center-text
+                        | Don't have an account? 
+                        a.btn.btn__link(href="/signup") signup
+                        |  instead
+                    
+                    

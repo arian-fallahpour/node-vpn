@@ -1,0 +1,15 @@
+extends _base
+
+block append head
+    link(rel='stylesheet' href=`/css/success.css`)
+
+block content
+    section.section.section--panel
+        .row
+            .col.u-grid-content-center.col-panel
+                .panel.success
+                    i.bi.bi-check-circle-fill.success__icon.success__icon--s
+                    h3.header-3.u-center-text=data.title
+                    .success__content
+                        p.paragraph=data.message
+                    a.btn.btn__primary.u-justify-self-stretch(href="/") Home

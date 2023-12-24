@@ -1,0 +1,60 @@
+extends _base
+include items/error
+include items/info
+
+block append head
+    link(rel='stylesheet' href=`/css/checkout.css`)
+    script(src='https://js.stripe.com/v3/')
+
+block content
+    section.section.section-checkout
+        .row
+            .checkout.slider.slider--checkout
+                .dots
+                    button.btn.dot(data-slide="1")
+                        span order summary
+                    button.btn.dot(data-slide="2")
+                        span order options
+                    button.btn.dot(data-slide="3")
+                        span payment page
+                .order.slides
+                    .slide.slide--1.slide--main
+                        h3.header-3.u-center-text your order
+                        .notice
+                        .plans
+                            //- include items/cards/checkoutCard
+                            //- include items/cards/checkoutCard
+                            //- include items/cards/checkoutCard
+                        .slider__nav
+                            button.btn.btn__primary.slider__btn.slider__next.order__options-btn(title="Proceed to payment options") next
+                    .slide.slide--2
+                        h3.header-3.u-center-text order options
+                        .notice
+                        .orderOptions
+                            //- include items/checkout/orderOptions   
+                        .slider__nav
+                            button.btn.btn__red.slider__btn.slider__back back
+                            button.btn.btn__primary.slider__btn.slider__next.order__payment-btn(title="Proceed to payment") 
+                                span payment
+                    .slide.slide--3
+                        h3.header-3.u-center-text payment page
+                        .paymentForms
+                            include items/checkout/newCardForm
+                        .slider__nav
+                            button.btn.btn__red.slider__btn.slider__back back
+                .sidebar
+                    .orderCost.panel.panel--secondary
+                        h4.header-4 order cost
+                        .notice
+                        .orderCost__content
+                            .prices
+                            .total
+                                span.total--total total
+                                span.total--cost --.--
+                    //- form.coupons.panel.panel--secondary
+                    //-     h4.header-4 coupon
+                    //-     .inputField.inputField--btn.inputField--bgSecondary
+                    //-         input(type="text" id="coupon" name="coupon" placeholder="enter coupon" maxlength="6" spellcheck="false" title="Type your coupon code if available")
+                    //-         label(for="coupon") enter coupon
+                    //-         button.btn.btn__primary(title="Apply code")
+                    //-             i.bi.bi-arrow-right

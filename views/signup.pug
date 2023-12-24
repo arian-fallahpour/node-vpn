@@ -1,0 +1,43 @@
+extends _base
+include items/error
+
+block append head
+    link(rel='stylesheet' href=`/css/signup.css`)
+
+block content
+    section.section.section--panel
+        .row
+            .col.u-grid-content-center.col-panel
+                .panel.signup
+                    h2.header-2.u-center-text Sign up
+                    h6.header-6.u-center-text.signup__message.u-none-text=message
+                    .notice
+                    form.credentialsForm
+                        .credentialsForm__inputs
+                            .inputField.inputField--bgLightGrey
+                                input(type="text" id="email" name="email" placeholder="test@example.com" spellcheck="false" title="Type your email")
+                                label(for="email") email
+                            .inputField.inputField--bgLightGrey
+                                input(type="text" id="fullName" name="fullName" placeholder="John Smith" spellcheck="false" title="Type your full name")
+                                label(for="fullName") full name
+                            .inputField.inputField--pass.inputField--bgLightGrey
+                                input(type="password" id="password" name="password" placeholder="password" title="Type your password")
+                                label(for="password") password
+                                //- button.btn.btn__primary.input__shown
+                                button.btn.btn__primary.btn__reveal(title="View password" type="button")
+                                    i.bi.bi-eye-fill
+                                    i.bi.bi-eye-slash-fill
+                                .tooltip.tooltip--right 
+                                    h6.header-6 requirements
+                                    ul.ul
+                                        li Min 8 characters
+                                        li 1 uppercase
+                                        li 1 number
+                        button.btn.btn__secondary.credentialsForm__submit(title="Submit form" data-redirect=redirect)
+                            span signup
+                            i.bi.bi-check-lg.success-icon
+                    p.paragraph
+                        | Already have an account? 
+                        a.btn.btn__link(href="/login") login
+                        |  instead
+                    

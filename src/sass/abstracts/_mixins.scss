@@ -1,0 +1,219 @@
+// SHADOWS
+@mixin box-shadow() {
+}
+
+@mixin box-shadow-large {
+  $diff: 6rem;
+
+  box-shadow: 0 1rem $diff calc(-1 * #{$diff} / 2) rgba(var(--c-black-rgb), 0.55),
+    0 0 $diff calc(-1 * #{$diff} / 2) rgba(var(--c-black-rgb), 0.35);
+}
+
+@mixin box-shadow-medium {
+  $diff: 3rem;
+
+  box-shadow: 0 1rem $diff calc(-1 * #{$diff} / 2) rgba(var(--c-black-rgb), 0.55),
+    0 0 $diff calc(-1 * #{$diff} / 2) rgba(var(--c-black-rgb), 0.35);
+}
+
+@mixin box-shadow-small {
+  $diff: 1.5rem;
+
+  box-shadow: 0 0 $diff calc(-1 * #{$diff} / 2) rgba(var(--c-grey-dark-rgb), 1),
+    0 1rem $diff calc(-1 * #{$diff}) rgba(var(--c-grey-dark-rgb), 0.5);
+}
+
+@mixin text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+@mixin button-shadow {
+  box-shadow: 0 5px 7.5px -5px rgba(0, 0, 0, 0.5);
+}
+
+// EFFECTS
+@mixin lighten {
+  box-shadow: inset 0 0 100px 100px rgba(white, 0.2);
+}
+
+@mixin darken {
+  box-shadow: inset 0 0 100px 100px rgba(black, 0.3);
+}
+
+@mixin button-hover {
+  box-shadow: 0 5px 7.5px -5px rgba(0, 0, 0, 0.5), inset 0 0 100px 100px rgba(black, 0.3);
+}
+
+@mixin glassify($color, $opacityH: 0.07, $opacityA: 0.14) {
+  &:hover,
+  &:focus {
+    color: rgba($color, 1);
+    background-color: rgba($color, $opacityH);
+  }
+
+  &:active {
+    background-color: rgba($color, $opacityA);
+  }
+}
+@mixin slidesOverflow($slides-height, $slides-overflow) {
+  height: calc(#{$slides-height} + 2 * #{$slides-overflow});
+  padding: $slides-overflow 0;
+  margin: -$slides-overflow 0;
+}
+
+// BACKGROUNDS
+@mixin primaryGradient {
+  background-image: linear-gradient(
+    to top right,
+    rgba(var(--c-primary-dark-rgb), 1) 0%,
+    rgba(var(--c-primary-light-rgb), 1) 100%
+  );
+}
+
+@mixin secondaryGradient {
+  background-image: linear-gradient(
+    to top right,
+    rgba(var(--c-secondary-dark-rgb), 1),
+    rgba(var(--c-secondary-light-rgb), 1)
+  );
+}
+
+// ITEMS
+@mixin loader($color) {
+  width: 1.6em;
+  height: 1.6em;
+  border: 4px solid $color;
+  border-top-color: transparent;
+  border-radius: 22rem;
+
+  animation: spin infinite 0.75s linear;
+}
+
+@mixin scrollbar($width, $padding, $background: var(--c-white), $horizontal: false) {
+  &::-webkit-scrollbar {
+    @if $horizontal {
+      height: calc(#{$width} + 2 * #{$padding});
+    } @else {
+      width: calc(#{$width} + 2 * #{$padding});
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    @if $horizontal {
+      margin: 0 - $padding;
+    } @else {
+      margin: -$padding 0;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--c-grey);
+    border-radius: 26px;
+    border: $padding solid $background;
+
+    &:hover {
+      background-color: var(--c-grey-dark);
+    }
+  }
+}
+
+// IMAGES
+@mixin image-phone {
+  width: 100%;
+  padding-top: 65%;
+}
+
+// MEDIA QUERY MANAGER
+@mixin respond($breakpoint) {
+  @if $breakpoint == 300 {
+    @media only screen and (max-width: 18.75em) {
+      // 300 px
+      @content;
+    }
+  }
+  @if $breakpoint == 400 {
+    @media only screen and (max-width: 25em) {
+      // 400 px
+      @content;
+    }
+  }
+  @if $breakpoint == 500 {
+    @media only screen and (max-width: 31.25em) {
+      // 500 px
+      @content;
+    }
+  }
+  @if $breakpoint == 600 {
+    @media only screen and (max-width: 37.5em) {
+      // 600 px
+      @content;
+    }
+  }
+  @if $breakpoint == 700 {
+    @media only screen and (max-width: 43.75em) {
+      // 700 px
+      @content;
+    }
+  }
+  @if $breakpoint == 800 {
+    @media only screen and (max-width: 50em) {
+      // 800 px
+      @content;
+    }
+  }
+  @if $breakpoint == 900 {
+    @media only screen and (max-width: 56.25em) {
+      // 900 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1000 {
+    @media only screen and (max-width: 62.5em) {
+      // 1000 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1100 {
+    @media only screen and (max-width: 68.75em) {
+      // 1100 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1200 {
+    @media only screen and (max-width: 75em) {
+      // 1200 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1300 {
+    @media only screen and (max-width: 81.25em) {
+      // 1300 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1400 {
+    @media only screen and (max-width: 87.5em) {
+      // 1400 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1500 {
+    @media only screen and (max-width: 93.75em) {
+      // 1500 px
+      @content;
+    }
+  }
+  @if $breakpoint == 1920 {
+    @media only screen and (min-width: 120em) {
+      // 1920 px
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media (hover: none) {
+      @content;
+    }
+  }
+}

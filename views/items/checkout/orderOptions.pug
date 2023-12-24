@@ -1,0 +1,20 @@
+form.paymentMethod
+    h5.header-5 payment method
+    .inputRadio
+        input(type="radio" name="paymentMethod" id="creditDebit" value="card" checked)
+        label(for="creditDebit") credit/Debit
+    .inputRadio
+        input(type="radio" name="paymentMethod" id="existingCard" value="existingCard")
+        label(for="existingCard") existing card
+    .inputRadio
+        input(type="radio" name="paymentMethod" id="apple" value="apple")
+        label(for="apple") apple pay
+form.paymentOptions 
+    h5.header-5 payment options
+    .paymentOption
+        label(for="option-recurring")
+            h6.header-6 Recurring payments
+        .inputSwitch
+            input(type="checkbox" id="option-recurring" name="recurring" title="Toggle dark mode")
+            label(for="option-recurring")
+        p.paragraph Your card will be saved, and it will be charged after every billing cycle. You can remove your card or turn this option off in the settings.

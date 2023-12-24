@@ -1,0 +1,89 @@
+.checkoutCard {
+  $padding: 1.5rem;
+
+  padding: $padding;
+
+  gap: $padding;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid var(--c-grey-light);
+  }
+
+  &__image {
+    @include primaryGradient;
+
+    $width: calc(5 * #{$padding});
+
+    width: $width;
+    height: $width;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      height: 100%;
+      margin-right: -10%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: $padding;
+  }
+
+  &__main {
+    flex: 1;
+
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  &__name {
+  }
+
+  &__quantity {
+  }
+
+  &__duration {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__price {
+    display: grid;
+    justify-items: center;
+    line-height: 1;
+
+    &--cost {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--c-primary);
+    }
+
+    &--time {
+    }
+  }
+
+  &__remove {
+    min-width: auto;
+    padding: 0;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 100%;
+    color: var(--c-red);
+    font-size: 2.25rem;
+
+    @include glassify(var(--c-red-rgb));
+
+    & > * {
+      margin-bottom: -7%;
+    }
+  }
+}

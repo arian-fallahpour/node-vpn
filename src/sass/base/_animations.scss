@@ -1,0 +1,64 @@
+@keyframes spin {
+  0% {
+    transform: rotate();
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showError {
+  0% {
+    transform: translateX(-2rem) scaleX(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes success-appear {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideFromLeft {
+  0% {
+    transform: translateX(-1rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes successIcon {
+  0% {
+    transform: rotateY(70deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes scaleRipple {
+  0% {
+  }
+
+  100% {
+    transform-origin: center;
+    transform: scale(3);
+    opacity: 0;
+  }
+}

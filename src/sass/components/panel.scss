@@ -1,0 +1,33 @@
+.section--panel {
+  min-height: 60rem;
+  display: grid;
+  align-items: center;
+}
+
+.col-panel {
+  grid-template-columns: minmax(auto, 40rem);
+  max-height: none;
+  height: auto;
+
+  @include respond(400) {
+    justify-content: stretch;
+  }
+}
+
+.panel {
+  background-color: var(--c-grey-light);
+  padding: 5rem;
+  border-radius: 1rem;
+
+  &--secondary {
+    @include box-shadow-medium;
+    @include secondaryGradient;
+
+    display: grid;
+    gap: 2rem;
+
+    padding: 3rem;
+    color: var(--c-white);
+    min-height: auto;
+  }
+}

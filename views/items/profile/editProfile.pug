@@ -1,0 +1,17 @@
+form.settings__section.editProfile
+    h5.header-5.u-center-text edit profile
+    .notice
+    .editProfile__inputs
+        .inputField
+            input(type="text" id="email" name="email" placeholder="test@example.com" spellcheck="false" title="Type your email" value="arianf2004@gmail.com")
+            label(for="email") email
+        .inputField
+            input(type="text" id="fullName" name="fullName" placeholder="John Smith" spellcheck="false" title="Type your full name" value="arian fallahpour")
+            label(for="fullName") full name
+    .editProfile__pic
+        img.profile__img.editProfile__img(src="/img/users/default-1.png")
+        input.editProfile__file(type="file" name="photo" id="photo" value="Change photo" accept="image/*")
+        label.btn.btn__text(for="photo") Change profile
+    button.btn.btn__primary.u-align-self-end.editProfile__btn(title="Edit profile")
+        span update profile
+        i.bi.bi-check-lg.success-icon

@@ -1,0 +1,480 @@
+.header {
+  display: grid;
+  gap: 3rem;
+  border-bottom: 2px solid var(--c-grey-light);
+
+  @include respond(700) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// SLIDER
+.slider {
+  display: grid;
+  justify-items: center;
+  gap: 5rem;
+
+  &__nav {
+    background-color: var(--c-grey-light);
+    border-radius: 22rem;
+
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  &__btn {
+    color: var(--c-grey);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    min-width: auto;
+
+    &:hover,
+    &:focus {
+      color: var(--c-primary-dark);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__next {
+    justify-self: start;
+  }
+
+  &__back {
+    justify-self: end;
+  }
+}
+
+.slides {
+  $padding-overflow: 5rem;
+  $slide-height: 50rem;
+
+  height: calc(#{$slide-height} + 2 * #{$padding-overflow});
+  padding: $padding-overflow 0;
+  margin: -$padding-overflow 0; // Fixes overflow issue
+
+  justify-self: stretch;
+  grid-column: 1 / -1;
+
+  & .slide {
+    display: grid;
+    align-items: stretch;
+
+    padding: $padding-overflow 5rem;
+    left: -5rem;
+    width: calc(100% + 10rem);
+
+    @include respond(700) {
+      padding: $padding-overflow 10rem;
+    }
+
+    &--1 {
+    }
+
+    &--2 {
+    }
+
+    &--3 {
+    }
+  }
+}
+
+// DOTS
+.dots {
+  display: grid;
+  grid-auto-columns: auto;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  grid-row: 1 / span 1;
+  background-color: var(--c-grey);
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 99rem;
+  padding: 0;
+  min-width: auto;
+
+  &:disabled {
+  }
+
+  &:hover,
+  &:focus {
+    @include lighten;
+  }
+
+  &.active,
+  &.active:link,
+  &.active:visited {
+    background-color: var(--c-primary);
+
+    &:disabled {
+      opacity: 1;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--c-primary-dark);
+    }
+  }
+}
+
+@mixin mobilePanel {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  max-width: 45rem;
+  justify-self: center;
+  gap: 0;
+
+  padding: 4rem;
+  border-radius: 1rem;
+}
+
+// RECOMMENDED
+.recommended {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 60rem;
+  justify-content: center;
+  align-content: center;
+
+  @include respond(800) {
+    grid-template-columns: minmax(auto, 60rem);
+  }
+
+  @include respond(500) {
+    @include secondaryGradient;
+    @include box-shadow-large;
+    @include mobilePanel;
+  }
+
+  &__image,
+  &__content {
+    position: relative;
+  }
+
+  &__image {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(800) {
+      display: none;
+    }
+
+    @include respond(500) {
+      display: grid;
+      justify-items: center;
+      align-items: start;
+    }
+
+    & img {
+      height: 30rem;
+      position: absolute;
+
+      @include respond(500) {
+        position: relative;
+        height: auto;
+        width: 80%;
+        margin-bottom: -50%;
+      }
+    }
+  }
+
+  &__content {
+    @include secondaryGradient;
+    @include box-shadow-large;
+    @include parallelogram;
+
+    padding: 5rem;
+    margin-right: 5rem;
+    color: var(--c-white);
+
+    @include respond(800) {
+      margin: 0 3rem;
+    }
+
+    @include respond(500) {
+      @include parallelogramRemove;
+
+      background-image: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+
+      & > .header-4 {
+        display: none;
+      }
+    }
+  }
+
+  &__name {
+    @include parallelogramInner;
+
+    display: block;
+    width: max-content;
+    background-color: var(--c-primary);
+    color: var(--c-white);
+    border-radius: 0.75rem;
+    padding: 2rem 3rem;
+    position: absolute;
+    left: 60%;
+    top: -2rem;
+    transform: translate(-50%, -30%);
+
+    @include respond(500) {
+      @include parallelogramRemove;
+
+      background-color: transparent;
+      position: relative;
+      left: auto;
+      top: auto;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 1em;
+
+      font-size: 2.5rem;
+    }
+  }
+
+  &__header {
+    @include respond(500) {
+      display: none;
+    }
+  }
+
+  &__cta {
+    @include parallelogramInner;
+
+    border-radius: 0.5rem;
+    transform: none;
+
+    @include respond(500) {
+      @include parallelogramRemove;
+    }
+
+    & i {
+      display: none;
+
+      @include respond(500) {
+        display: inline;
+      }
+    }
+  }
+
+  &__info {
+    @include parallelogramInner;
+
+    padding: 3rem;
+    background-color: var(--c-secondary-dark);
+    font-size: 1.25rem;
+    position: absolute;
+    right: 5rem;
+    top: 90%;
+    transform: translate(0, -50%);
+
+    @include respond(600) {
+      right: -2.5rem;
+    }
+
+    @include respond(500) {
+      display: none;
+    }
+  }
+
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__price {
+    color: inherit;
+    text-transform: lowercase;
+  }
+}
+
+// SERVERS
+.servers {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+
+  &__left,
+  &__right {
+    @include parallelogramReverse;
+    @include secondaryGradient;
+    @include box-shadow-medium;
+
+    width: 40rem;
+    z-index: 8;
+    padding: 5rem;
+    color: var(--c-white);
+
+    transition: all 0.2s ease-out;
+
+    &--shape {
+      height: 100%;
+      width: 10rem;
+      shape-margin: 3rem;
+    }
+  }
+
+  &__left {
+    margin-right: -9.5rem;
+    justify-self: end;
+    align-self: end;
+    text-align: center;
+
+    &--shape {
+      float: right;
+      shape-outside: polygon(42.67% 2.67%, 247.78% -43.11%, 246.67% 131.44%, 42.67% 87.56%);
+      clip-path: polygon(42.67% 2.67%, 247.78% -43.11%, 246.67% 131.44%, 42.67% 87.56%);
+    }
+
+    & > *:not(button) {
+      text-align: right;
+    }
+  }
+
+  &__right {
+    margin-left: -9.5rem;
+    align-self: start;
+
+    &--shape {
+      float: left;
+      shape-outside: polygon(-145.56% -28.67%, 58.44% 17.89%, 59.55% 102.89%, -144.45% 147.11%);
+      clip-path: polygon(-145.56% -28.67%, 58.44% 17.89%, 59.55% 102.89%, -144.45% 147.11%);
+    }
+  }
+
+  &__paragraph {
+  }
+
+  &__center {
+    position: relative;
+
+    display: grid;
+    align-items: center;
+  }
+
+  &__backdrop {
+    @include parallelogram;
+    @include primaryGradient;
+    @include box-shadow-medium;
+
+    height: 70%;
+    width: 100%;
+    z-index: 7;
+  }
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    margin-top: -8%;
+    transform: translate(-50%, -50%);
+
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+// WORLD MAP
+.download {
+  @include primaryGradient;
+
+  position: relative;
+  padding: 5rem;
+  border-radius: 1rem;
+
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  transition: all 0.2s ease-in-out;
+
+  @include respond(700) {
+    @include mobilePanel;
+  }
+
+  &__content {
+    display: grid;
+    justify-items: start;
+    z-index: 10;
+    color: var(--c-white);
+
+    & > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    & > *:first-child {
+      @include respond(700) {
+        font-size: 2.5rem;
+      }
+    }
+
+    & .btn {
+      color: var(--c-white);
+
+      & > *:first-child {
+        background-color: var(--c-white);
+        color: var(--c-primary);
+      }
+
+      &:hover > span,
+      &:focus > span {
+        color: var(--c-primary);
+      }
+    }
+  }
+
+  &__image {
+    display: grid;
+    justify-items: end;
+
+    @include respond(700) {
+      grid-row: 1 / span 1;
+      max-height: none;
+
+      display: grid;
+      justify-items: center;
+    }
+
+    & img {
+      max-height: 35rem;
+      width: 100%;
+
+      @include respond(700) {
+        width: 80%;
+        margin-bottom: -50%;
+      }
+    }
+  }
+}

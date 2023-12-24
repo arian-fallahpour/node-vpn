@@ -1,0 +1,28 @@
+mixin planCard(plan)
+    .planCard
+        .planCard__header
+            h4.header-4.u-center-text.planCard__name=plan.name
+            img.planCard__img(src=`/img/app/${plan.photo}`)
+        .planCard__content
+            h6.header-6.planCard__price
+                span.planCard__price--price=`${plan.price}`
+                span.planCard__price--time /mon
+            ul.u-center-text.planCard__list
+                li.li.planCard__item 
+                    i.bi.bi-check-circle-fill
+                    span Unlimited download
+                li.li.planCard__item 
+                    i.bi.bi-check-circle-fill
+                    span Openvpn UDP/TCP, IKEv2 and more!
+                li.li.planCard__item 
+                    i.bi.bi-check-circle-fill
+                    span 10 Devices per account
+                li.li.planCard__item 
+                    i.bi.bi-check-circle-fill
+                    span No logs
+                li.li.planCard__item 
+                    i.bi.bi-check-circle-fill
+                    span And more!
+            a.btn.btn__primary(href=`/checkout?product=${plan._id}`) 
+                span buy now
+                i.bi.bi-bag-fill

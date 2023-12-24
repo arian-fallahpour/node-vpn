@@ -1,0 +1,18 @@
+extends layout/_base
+
+block content
+    tr
+        td
+            table.template
+                tbody.template__inner
+                    tr
+                        td.template__title
+                            h2.header-2 two factor code
+
+                    tr 
+                        td
+                            p.paragraph Here is your two factor code:
+
+                    tr
+                        td 
+                            div.template__code=code || "N/A"

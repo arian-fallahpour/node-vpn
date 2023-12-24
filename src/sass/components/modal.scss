@@ -1,0 +1,80 @@
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.2);
+  z-index: 200;
+
+  transition: all 0.2s ease-out;
+
+  &.hide {
+    & > .modal {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+  }
+}
+
+.modal {
+  display: grid;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 50rem;
+  min-height: 40rem;
+  max-width: 55rem;
+  background-color: var(--c-white);
+  border-radius: 1rem;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+
+  transition: transform 0.2s ease-out;
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 0;
+    font-size: 3rem;
+    padding: 0 0.75rem;
+    border-radius: 22rem;
+    min-width: auto;
+    color: var(--c-black);
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    @include glassify(var(--c-black-rgb));
+  }
+
+  &__exit {
+    color: var(--c-red);
+
+    @include glassify(var(--c-red-rgb));
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  &__content {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+    padding: 5rem;
+  }
+
+  &__buttons {
+    border-top: 2px solid var(--c-grey-light);
+    padding: 2rem 3rem;
+
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+  }
+}

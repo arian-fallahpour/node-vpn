@@ -1,0 +1,116 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  @include respond(1200) {
+    font-size: 56.25%;
+  }
+
+  @include respond(900) {
+    // 8px
+    font-size: 50%;
+  }
+
+  @include respond(1920) {
+    // 12px
+    font-size: 65%;
+  }
+}
+
+body {
+}
+
+button {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+input {
+  margin: 0;
+  min-width: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// bootstrap icons
+.bi {
+  &::before {
+    height: 1em;
+    width: 1em;
+    margin: auto;
+  }
+}
+
+// For transitions that appear as the page loads
+.css-transitions-only-after-page-load * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.dragscroll {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// Range input styling
+input[type="range"]::-moz-range-thumb,
+input[type="range"]::-webkit-slider-thumb {
+  &:hover {
+  }
+
+  &:active {
+  }
+}
+
+input[type="range"]::-moz-range-track,
+input[type="range"]::-webkit-slider-runnable-track {
+}
+
+// SCROLLBAR
+/* width */
+// ::-webkit-scrollbar {
+//   width: 1.5rem;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   margin: -0.5rem;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: var(--c-secondary);
+//   border-radius: 0.2rem;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: var(--c-secondary-dark);
+// }

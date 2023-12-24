@@ -1,0 +1,165 @@
+.paymentForm {
+  $padding: 3rem;
+
+  display: grid;
+  gap: $padding 2rem;
+  grid-template-rows: auto 1fr;
+
+  width: 45rem;
+  padding: $padding;
+  border-radius: 1rem;
+  border: 2px solid var(--c-grey-light);
+
+  &__header {
+    display: grid;
+    gap: 1rem;
+  }
+
+  & .inputField {
+    cursor: text;
+  }
+
+  &__submit {
+  }
+}
+
+.newCard {
+  &__inputs {
+    display: grid;
+    gap: inherit;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-5,
+  #card-number,
+  &__payNow {
+    grid-column: 1 / -1;
+  }
+
+  #number {
+  }
+
+  #expiry {
+  }
+
+  #cvc {
+  }
+
+  #cardName {
+  }
+
+  &__payNow {
+  }
+}
+
+.existingCard {
+  &__payNow {
+  }
+
+  .cards {
+    @include scrollbar(8px, 8px, var(--c-white));
+
+    display: grid;
+    align-content: start;
+    height: 22.5rem;
+    gap: 2rem;
+    overflow-y: auto;
+
+    padding-bottom: 1px;
+  }
+
+  .card {
+    $padding: 1rem;
+
+    padding: $padding;
+    border: 2px solid var(--c-grey-light);
+    border-radius: 1rem;
+    text-align: unset;
+    font-weight: unset;
+
+    display: flex;
+    align-items: center;
+    gap: $padding;
+
+    &:hover,
+    &:focus {
+      &,
+      &::after {
+        border-color: var(--c-grey);
+      }
+    }
+
+    &.selected {
+      &,
+      &::after {
+        border-color: var(--c-primary);
+      }
+
+      &::after {
+        background-color: var(--c-primary);
+      }
+    }
+
+    &__img {
+      height: 4rem;
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__status {
+      &:empty {
+        display: none;
+      }
+
+      & .default {
+        background-color: rgba(var(--c-primary-rgb), 0.1);
+        color: var(--c-primary);
+        padding: 0.25rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 1.4rem;
+      }
+    }
+
+    &::after {
+      $width: 1.75rem;
+
+      content: "";
+      display: block;
+      position: relative;
+      height: $width;
+      width: $width;
+      border: 2px solid var(--c-grey-light);
+      border-radius: 100%;
+
+      transition: inherit;
+    }
+  }
+
+  .selectedCard {
+    $padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: $padding;
+
+    &__img {
+      height: 4rem;
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &::after {
+      content: "selected";
+      position: relative;
+      display: block;
+      text-transform: lowercase;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+}

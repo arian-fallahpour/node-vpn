@@ -1,0 +1,14 @@
+.settings__section.users
+    h5.header-5.u-center-text manage users
+    form.search
+        .inputField.inputField--search
+            input(type="text" id="search" name="search" placeholder="search by name" spellcheck="false" title="Type your search")
+            label(for="search") search by name
+            button.btn.btn__secondary
+                i.bi.bi-search
+    .notice
+    .users__content
+        //- include ../userCard
+    .users__nav
+        button.btn.btn__text(title="back") back
+        button.btn.btn__primary(title="back") next

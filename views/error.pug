@@ -1,0 +1,18 @@
+extends _base
+
+block append head
+    link(rel='stylesheet' href=`/css/error.css`)
+
+block content
+    section.section.section--panel
+        .row
+            .col.u-grid-content-center.col-panel
+                .panel.success
+                    i.bi.bi-exclamation-circle-fill.success__icon.success__icon--e
+                    h3.header-3.u-center-text=data.statusCode
+                    .success__content
+                        p.paragraph=data.message
+                    a.btn.btn__red.u-justify-self-stretch(href="/") Home
+
+
+                

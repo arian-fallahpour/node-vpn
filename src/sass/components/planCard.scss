@@ -1,0 +1,159 @@
+.planCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+
+  @include respond(1300) {
+    gap: 3rem;
+  }
+
+  @include respond(900) {
+    grid-template-columns: minmax(auto, 60rem);
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  @include respond(500) {
+    grid-template-columns: minmax(auto, 35rem);
+  }
+}
+
+.planCard {
+  @include box-shadow-small;
+
+  $radius: 1rem;
+  $padding: 3rem;
+
+  transition: all 0.2s ease-in-out;
+  border-radius: $radius;
+  overflow: hidden;
+  color: var(--c-black);
+  background-color: var(--c-white);
+  position: relative;
+
+  display: grid;
+  grid-template-rows: 1fr auto;
+
+  @include respond(900) {
+    grid-template-columns: minmax(20rem, 1fr) auto;
+    grid-template-rows: 1fr;
+  }
+
+  @include respond(500) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-0.5rem);
+
+    @include respond(900) {
+      transform: translateY(0);
+    }
+  }
+
+  &__header {
+    @include primaryGradient;
+
+    padding: $padding;
+    color: var(--c-white);
+    position: relative;
+    z-index: 10;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+    justify-items: center;
+
+    @include respond(900) {
+      gap: 0;
+    }
+
+    @include respond(500) {
+      gap: 2rem;
+    }
+  }
+
+  &__name {
+    text-align: center;
+  }
+
+  &__img {
+    height: 15rem;
+    margin-bottom: -6.5rem;
+    filter: drop-shadow(0 0 15px rgba(var(--c-primary-dark-rgb), 0.5));
+
+    @include respond(900) {
+      align-self: center;
+      margin: 0;
+    }
+
+    @include respond(500) {
+      margin-bottom: -6.5rem;
+    }
+  }
+
+  &__content {
+    padding: $padding;
+    padding-top: calc(#{$padding} + 2rem);
+    position: relative;
+    background-color: var(--c-white);
+
+    display: grid;
+    gap: 2.5rem;
+
+    @include respond(900) {
+      padding-top: $padding;
+    }
+
+    @include respond(500) {
+      padding-top: calc(#{$padding} + 2rem);
+    }
+  }
+
+  &__price {
+    text-transform: lowercase;
+    font-weight: 500;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    &--price {
+      font-size: 3rem;
+      font-weight: 900;
+      display: flex;
+      color: var(--c-primary);
+
+      &::before {
+        content: "$";
+        align-self: start;
+        font-size: 1.5rem;
+      }
+    }
+
+    &--time {
+    }
+  }
+
+  &__list {
+    flex: 1;
+
+    list-style: none;
+
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+    justify-content: start;
+  }
+
+  &__item {
+    display: flex;
+    text-align: start;
+
+    & > i {
+      color: var(--c-green);
+    }
+  }
+}
