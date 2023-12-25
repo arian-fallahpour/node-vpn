@@ -73,6 +73,6 @@
     "validator": "^13.6.0"
   },
   "engines": {
-    "node": "^12"
+    "node": "^18"
   }
 }
